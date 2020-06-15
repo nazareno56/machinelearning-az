@@ -20,18 +20,16 @@ y = dataset.iloc[:, 3].values
 
 # Codificar datos categóricos
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+from sklearn.compose import make_column_transformer
 
 labelencoder_X = LabelEncoder()
-X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0]) # se encarga de transformar a datos numericos
 
-ct = ColumnTransformer(
-    [('one_hot_encoder', OneHotEncoder(categories='auto'), [0])],    # The column numbers to be transformed (here is [0] but can be [0, 1, 3])
-    remainder='passthrough'                         # Leave the rest of the columns untouched
-)
+# Generar variables dummys, columnas que llevan un 0 False, 1 True
+onehotencoder = make_column_transformer((OneHotEncoder(), [0]), # The column numbers to be transformed (here is [0] but can be [0, 1, 3])
+                                        remainder = "passthrough") # Leave the rest of the columns untouched
+X = onehotencoder.fit_transform(X).astype('float64') 
 
-#onehotencoder = OneHotEncoder(categorical_features=[0])
-#X = onehotencoder.fit_transform(X).toarray()
-X = np.array(ct.fit_transform(X), dtype=np.float)
+
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)

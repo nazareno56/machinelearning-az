@@ -28,4 +28,4 @@ rules = apriori(transactions, min_support = 0.003 , min_confidence = 0.2,
 # Visualización de los resultados
 results = list(rules)
 
-print(results[4])
+results[4]

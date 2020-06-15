@@ -37,7 +37,7 @@ regression = RandomForestRegressor(n_estimators = 300, random_state = 0)
 regression.fit(X, y)
 
 # Predicción de nuestros modelos con Random Forest
-y_pred = regression.predict(6.5)
+y_pred = regression.predict([[6.5]])
 
 # Visualización de los resultados del Random Forest
 X_grid = np.arange(min(X), max(X), 0.01)

@@ -43,8 +43,8 @@ y_pred = sc_y.inverse_transform(regression.predict(sc_X.transform(np.array([[6.5
 # Visualización de los resultados del SVR
 X_grid = np.arange(min(X), max(X), 0.1)
 X_grid = X_grid.reshape(len(X_grid), 1)
-plt.scatter(X, y, color = "red")
-plt.plot(X_grid, regression.predict(X_grid), color = "blue")
+plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = "red")
+plt.plot(sc_X.inverse_transform(X_grid), sc_y.inverse_transform(regression.predict(X_grid)), color = "blue")
 plt.title("Modelo de Regresión (SVR)")
 plt.xlabel("Posición del empleado")
 plt.ylabel("Sueldo (en $)")

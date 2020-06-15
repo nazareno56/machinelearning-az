@@ -35,7 +35,7 @@ X_test = sc_X.transform(X_test)
 
 # Ajustar el clasificador en el Conjunto de Entrenamiento
 from sklearn.neighbors import KNeighborsClassifier
-classifier = KNeighborsClassifier(n_neighbors = 5, metric = "minkowski", p = 2)
+classifier = KNeighborsClassifier(n_neighbors = 5, metric = "minkowski", p = 2) # p=2 distancia euclidea
 classifier.fit(X_train, y_train)
 
 # Predicción de los resultados con el Conjunto de Testing

@@ -25,7 +25,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, rando
 
 
 # Escalado de variables
-"""
+# En una regresion lineal simple no resulta necesario un escalado de variables
+""" 
 from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
@@ -41,7 +42,7 @@ regression.fit(X_train, y_train)
 y_pred = regression.predict(X_test)
 
 # Visualizar los resultados de entrenamiento
-plt.scatter(X_train, y_train, color = "red")
+plt.scatter(X_train, y_train, color = "red") # Nube de puntos
 plt.plot(X_train, regression.predict(X_train), color = "blue")
 plt.title("Sueldo vs Años de Experiencia (Conjunto de Entrenamiento)")
 plt.xlabel("Años de Experiencia")

@@ -2,9 +2,7 @@
 
 # Preprocesado de Datos
 #install.packages("arules")
-library(arules) 
-library(arulesViz)
-
+library(arules)
 dataset = read.csv("Market_Basket_Optimisation.csv", header = FALSE)
 dataset = read.transactions("Market_Basket_Optimisation.csv",
                             sep = ",", rm.duplicates = TRUE)
@@ -18,7 +16,5 @@ rules = apriori(data = dataset,
 # Visualización de los resultados
 inspect(sort(rules, by = 'lift')[1:10])
   
-plot(rules, method = "graph", engine = "htmlwidget")
-
-
+  
   

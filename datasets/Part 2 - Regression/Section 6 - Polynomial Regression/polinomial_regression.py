@@ -39,7 +39,7 @@ lin_reg.fit(X, y)
 # Ajustar la regresión polinómica con el dataset
 from sklearn.preprocessing import PolynomialFeatures
 poly_reg = PolynomialFeatures(degree = 4)
-X_poly = poly_reg.fit_transform(X)
+X_poly = poly_reg.fit_transform(X) # el fit aplica y el transform transforma:0
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(X_poly, y)
 
@@ -53,7 +53,7 @@ plt.show()
 
 # Visualización de los resultados del Modelo Polinómico
 X_grid = np.arange(min(X), max(X), 0.1)
-X_grid = X_grid.reshape(len(X_grid), 1)
+X_grid = X_grid.reshape(len(X_grid), 1) # lo transpongo
 plt.scatter(X, y, color = "red")
 plt.plot(X_grid, lin_reg_2.predict(poly_reg.fit_transform(X_grid)), color = "blue")
 plt.title("Modelo de Regresión Polinómica")

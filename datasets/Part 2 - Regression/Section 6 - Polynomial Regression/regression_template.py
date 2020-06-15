@@ -38,7 +38,7 @@ X_test = sc_X.transform(X_test)"""
 # Predicción de nuestros modelos
 y_pred = regression.predict(6.5)
 
-# Visualización de los resultados del Modelo Polinómico
+# Visualización de los resultados del Modelo
 X_grid = np.arange(min(X), max(X), 0.1)
 X_grid = X_grid.reshape(len(X_grid), 1)
 plt.scatter(X, y, color = "red")
